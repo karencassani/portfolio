@@ -1,0 +1,36 @@
+
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+}
+
+.links {
+    display: flex;
+    gap: 10px; 
+}
+
+
+.links a {
+    text-decoration: none; 
+    background-color: #000000; 
+    color: #ffffff !important; 
+    padding: 10px 20px;
+    border-radius: 20px; 
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+
+.links a:hover {
+    background-color: #1a1a1a;
+    color: #bfa1ff !important; 
+}
+
+.logo-texto h4 {
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+}
