@@ -1,25 +1,11 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const ContactMe = () => {
-  
   const colors = {
-    bg: '#0b0f19',        
-    text: '#ffffff',      
-    textSecondary: '#94a3b8', 
-    primary: '#bfa1ff',   
-    inputBg: '#111827',   
-    border: '#1f2937'     
-  };
-
-  const inputStyle = {
-    padding: '14px 20px',
-    borderRadius: '12px',
-    border: `1px solid ${colors.border}`,
-    outline: 'none',
-    fontFamily: "'Varela Round', sans-serif",
-    backgroundColor: colors.inputBg,
-    color: 'white',
-    fontSize: '0.95rem'
+    bg: '#fdf2f8',
+    text: '#5c4b6b',
+    primary: '#f9a8d4',
+    secondary: '#e9d5ff'
   };
 
   return (
@@ -34,89 +20,86 @@ const ContactMe = () => {
       padding: '20px'
     }}>
       
-      
-      <div style={{ position: 'absolute', top: '30px', left: '30px' }}>
+      {/* Botón sutil en la esquina superior izquierda */}
+      <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
         <Link to="/" style={{
           textDecoration: 'none',
           color: colors.primary,
           fontSize: '0.9rem',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px'
         }}>
-          ← Back to Home
+          ⬅ Volver
         </Link>
       </div>
 
       <div style={{
+        background: 'white',
+        padding: '40px',
+        borderRadius: '30px',
+        boxShadow: `0 10px 0px ${colors.secondary}`,
         width: '100%',
-        maxWidth: '500px',
-        textAlign: 'left' 
+        maxWidth: '450px',
+        textAlign: 'center',
+        border: `2px solid ${colors.secondary}`
       }}>
-        <h2 style={{ 
-          fontSize: '3rem', 
-          color: colors.text, 
-          marginBottom: '10px',
-          fontWeight: 'bold' 
-        }}>
-          Get in <span style={{ color: colors.primary, fontStyle: 'italic' }}>Touch</span>
-        </h2>
-        <p style={{ color: colors.textSecondary, marginBottom: '40px', fontSize: '1.1rem' }}>
-          Have a question or want to work together? Leave a message below.
+        <h2 style={{ color: colors.primary, marginBottom: '10px' }}>Send me a message! 💌</h2>
+        <p style={{ color: colors.text, marginBottom: '25px', fontSize: '0.9rem' }}>
+          ¿Tienes alguna pregunta o solo quieres decir hola?
         </p>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>NAME</label>
-            <input type="text" placeholder="Your name" style={inputStyle} />
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>EMAIL</label>
-            <input type="email" placeholder="email@example.com" style={inputStyle} />
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>MESSAGE</label>
-            <textarea placeholder="How can I help you?" rows="5" style={inputStyle}></textarea>
-          </div>
+        {/* Aquí va tu formulario de Resend o el que estés usando */}
+        <form style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <input type="text" placeholder="Tu nombre" style={inputStyle} />
+          <input type="email" placeholder="Tu email" style={inputStyle} />
+          <textarea placeholder="Cuéntame algo..." rows="4" style={inputStyle}></textarea>
           
           <button type="submit" style={{
             backgroundColor: colors.primary,
-            color: '#000000', 
+            color: 'white',
             border: 'none',
-            padding: '15px',
-            borderRadius: '12px',
+            padding: '12px',
+            borderRadius: '50px',
             fontWeight: 'bold',
-            fontSize: '1rem',
             cursor: 'pointer',
-            marginTop: '10px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.filter = 'brightness(1.1)';
-            e.target.style.transform = 'translateY(-2px)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.filter = 'brightness(1)';
-            e.target.style.transform = 'translateY(0)';
-          }}
-          >
-            SEND MESSAGE →
+            boxShadow: '0 4px 0px #f472b6',
+            marginTop: '10px'
+          }}>
+            ENVIAR ✨
           </button>
         </form>
 
-        <div style={{ 
-            marginTop: '40px', 
-            borderTop: `1px solid ${colors.border}`, 
-            paddingTop: '20px',
-            textAlign: 'center' 
-        }}>
-          <p style={{ color: colors.textSecondary, fontSize: '0.8rem' }}>
-            Usually responds within 24 hours.
-          </p>
+        {/* --- EL BOTÓN DE GO BACK ABAJO --- */}
+        <div style={{ marginTop: '30px', borderTop: `1px dashed ${colors.secondary}`, paddingTop: '20px' }}>
+          <Link to="/" style={{
+            textDecoration: 'none',
+            color: colors.text,
+            fontWeight: 'bold',
+            fontSize: '1rem',
+            transition: '0.3s'
+          }}
+          onMouseOver={(e) => e.target.style.color = colors.primary}
+          onMouseOut={(e) => e.target.style.color = colors.text}
+          >
+            🏠 Volver al inicio
+          </Link>
         </div>
       </div>
+
+      <div style={{ marginTop: '20px', fontSize: '1.2rem' }}>🌸🎀🌸</div>
     </div>
   );
+};
+
+const inputStyle = {
+  padding: '12px 20px',
+  borderRadius: '15px',
+  border: '2px solid #f3f4f6',
+  outline: 'none',
+  fontFamily: "'Varela Round', sans-serif",
+  backgroundColor: '#f9fafb'
 };
 
 export default ContactMe;
