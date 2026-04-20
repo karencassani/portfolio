@@ -1,12 +1,12 @@
 import { Link } from "react-router";
 
 const ContactMe = () => {
-  // Sincronizamos con tu paleta profesional
+
   const colors = {
-    bg: '#0b0f19',        // Fondo oscuro
-    text: '#ffffff',      // Texto blanco
-    textSecondary: '#94a3b8', // Gris suave
-    primary: '#bfa1ff',   // Tu morado bajito
+    bg: '#0b0f19',        
+    text: '#ffffff',      
+    textSecondary: '#94a3b8', 
+    primary: '#bfa1ff',   
     inputBg: '#111827',   
     border: '#1f2937'     
   };
@@ -34,7 +34,7 @@ const ContactMe = () => {
       padding: '20px'
     }}>
       
-      {/* Link de volver limpio arriba */}
+    
       <div style={{ position: 'absolute', top: '30px', left: '30px' }}>
         <Link to="/" style={{
           textDecoration: 'none',
@@ -49,7 +49,7 @@ const ContactMe = () => {
       <div style={{
         width: '100%',
         maxWidth: '500px',
-        textAlign: 'left' // Cambiamos a alineación izquierda para que se vea más moderno
+        textAlign: 'left' 
       }}>
         <h2 style={{ 
           fontSize: '3rem', 
@@ -81,7 +81,7 @@ const ContactMe = () => {
           
           <button type="submit" style={{
             backgroundColor: colors.primary,
-            color: '#000000', // Texto negro sobre el botón morado para que resalte
+            color: '#000000', 
             border: 'none',
             padding: '15px',
             borderRadius: '12px',
