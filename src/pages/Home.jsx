@@ -1,13 +1,18 @@
-import {Link} from "react-router";
+import Hero from "../components/Hero";
+import Navbar from "../components/Navbar";
+
 const Home = () => {
-    return (
-        <>
-            <h1>Home</h1>
-            <p>
-                 <Link to= "/" > Go back</Link>
-            </p>
-        </>
-    );
+  return (
+    <>
+      <Navbar>
+        {/* El contenido principal de tu inicio */}
+        <Hero />
+        
+        {/* Si quieres agregar más secciones abajo del Hero en el futuro, 
+            puedes hacerlo aquí mismo */}
+      </Navbar>
+    </>
+  );
 };
 
 export default Home;

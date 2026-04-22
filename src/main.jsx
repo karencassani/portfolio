@@ -15,13 +15,17 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/Home" element={<Home />} />
+        {/* Ahora la raíz es tu HOME real */}
+        <Route path="/" element={<Home />} /> 
+        
+        {/* Eliminamos la ruta /Home porque ya es la principal */}
         <Route path="/ContactMe" element={<ContactMe />} />
         <Route path="/Aboutme" element={<Aboutme />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/ViewProjects" element={<ViewProjects />} />
-
+        
+        {/* Si quieres conservar App como una sección extra, déjala aquí: */}
+        <Route path="/welcome" element={<App />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
