@@ -1,6 +1,15 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; // Cambié a react-router-dom por seguridad
+import React, { useState } from "react";
 
 const ContactMe = () => {
+  // 1. Estado para capturar los datos (Igual al de tu amigo)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
 
   const colors = {
     bg: '#0b0f19',        
@@ -9,6 +18,38 @@ const ContactMe = () => {
     primary: '#bfa1ff',   
     inputBg: '#111827',   
     border: '#1f2937'     
+  };
+
+  // 2. Función para manejar los cambios en los inputs
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // 3. Función para enviar el correo (Llamando a tu api/send)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('Sending... 💌');
+
+    try {
+      const response = await fetch('/api/server', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully! 🌸');
+        setFormData({ name: '', email: '', message: '' }); // Limpiar
+      } else {
+        setStatus('Error sending message ❌');
+      }
+    } catch (error) {
+      setStatus('Connection error ❌');
+    }
   };
 
   const inputStyle = {
@@ -34,7 +75,6 @@ const ContactMe = () => {
       padding: '20px'
     }}>
       
-    
       <div style={{ position: 'absolute', top: '30px', left: '30px' }}>
         <Link to="/" style={{
           textDecoration: 'none',
@@ -63,20 +103,45 @@ const ContactMe = () => {
           Have a question or want to work together? Leave a message below.
         </p>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* 4. Conectamos el onSubmit al formulario */}
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>NAME</label>
-            <input type="text" placeholder="Your name" style={inputStyle} />
+            <input 
+              name="name" // NOMBRE IMPORTANTE
+              type="text" 
+              placeholder="Your name" 
+              style={inputStyle} 
+              value={formData.name}
+              onChange={handleOnChange}
+              required
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>EMAIL</label>
-            <input type="email" placeholder="email@example.com" style={inputStyle} />
+            <input 
+              name="email" // NOMBRE IMPORTANTE
+              type="email" 
+              placeholder="email@example.com" 
+              style={inputStyle} 
+              value={formData.email}
+              onChange={handleOnChange}
+              required
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>MESSAGE</label>
-            <textarea placeholder="How can I help you?" rows="5" style={inputStyle}></textarea>
+            <textarea 
+              name="message" // NOMBRE IMPORTANTE
+              placeholder="How can I help you?" 
+              rows="5" 
+              style={inputStyle} 
+              value={formData.message}
+              onChange={handleOnChange}
+              required
+            ></textarea>
           </div>
           
           <button type="submit" style={{
@@ -103,6 +168,12 @@ const ContactMe = () => {
             SEND MESSAGE →
           </button>
         </form>
+
+        {status && (
+          <p style={{ color: colors.primary, marginTop: '20px', textAlign: 'center', fontSize: '0.9rem' }}>
+            {status}
+          </p>
+        )}
 
         <div style={{ 
             marginTop: '40px', 
