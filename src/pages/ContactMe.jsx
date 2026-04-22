@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; // Cambié a react-router-dom por seguridad
+import { Link } from "react-router"; // Cambié a react-router-dom por seguridad
 import React, { useState } from "react";
 
 const ContactMe = () => {
