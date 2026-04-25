@@ -6,18 +6,19 @@ const Navbar = ({children}) => {
         <>
             <div className="container-navbar">
                 <div className="logo-texto">
-                    {/* Tu nombre ahora funciona como el botón de inicio */}
+                    {/* Esta ahora es la pagina de inicio  */}
                     <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                         <h4>KAREN_CASSANI</h4>
                     </Link>
                 </div>
                 <div className="links">
-                    {/* Eliminamos el Link de Home de aquí */}
+                    {/* Aqui el eliminamos el Link de Home  */}
                     <Link to="/aboutme">About Me</Link>
                     <Link to="/projects">Projects</Link>
                     <Link to="/ContactMe">Contact Me</Link>
                 </div>
             </div>
+            {/* Renderiza el contenido de la pagina debajo del Navbar*/}
             {children}
         </>
     );

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './pages/Home.jsx'; //HOME CON MAYUSCULA
-
+//estos son los imports de las paginas principales 
 import ContactMe from './pages/ContactMe.jsx';
 import Aboutme from './pages/Aboutme.jsx';
 import Projects from './pages/Projects.jsx';
@@ -15,16 +15,16 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Ahora la raíz es tu HOME real */}
+        {/* Aqui estamos renderizando el home por defecto al entrar al sitio */}
         <Route path="/" element={<Home />} /> 
         
-        {/* Eliminamos la ruta /Home porque ya es la principal */}
+        {/* Estas son las rutas de navegacion interna  */}
         <Route path="/ContactMe" element={<ContactMe />} />
         <Route path="/Aboutme" element={<Aboutme />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/ViewProjects" element={<ViewProjects />} />
         
-        {/* Si quieres conservar App como una sección extra, déjala aquí: */}
+        {/* Esta es la seccion temporal para el componente App */}
         <Route path="/welcome" element={<App />} />
       </Routes>
     </BrowserRouter>

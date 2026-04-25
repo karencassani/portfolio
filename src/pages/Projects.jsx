@@ -10,7 +10,7 @@ const Projects = () => {
     bg: '#0b0f19',        
     text: '#ffffff',     
     textSecondary: '#94a3b8', 
-    primary: '#bfa1ff',   
+    primary: '#7954cb',   
     cardBg: '#111827',    
     border: '#1f2937'    
   };
