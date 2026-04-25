@@ -8,8 +8,7 @@ const Home = () => {
         {/* El contenido principal de tu inicio */}
         <Hero />
         
-        {/* Si quieres agregar más secciones abajo del Hero en el futuro, 
-            puedes hacerlo aquí mismo */}
+        {/* Para agregar mas secciones abajo de Hero es aqui  */}
       </Navbar>
     </>
   );

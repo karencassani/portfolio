@@ -29,7 +29,7 @@ const ContactMe = () => {
     }));
   };
 
-  // 3. Función para enviar el correo (Llamando a tu api/send)
+  // 3. Función para enviar el correo
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending... 💌');
@@ -43,7 +43,7 @@ const ContactMe = () => {
 
       if (response.ok) {
         setStatus('Message sent successfully! 🌸');
-        setFormData({ name: '', email: '', message: '' }); // Limpiar
+        setFormData({ name: '', email: '', message: '' }); 
       } else {
         setStatus('Error sending message ❌');
       }
@@ -108,7 +108,7 @@ const ContactMe = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>NAME</label>
             <input 
-              name="name" // NOMBRE IMPORTANTE
+              name="name"
               type="text" 
               placeholder="Your name" 
               style={inputStyle} 
@@ -121,7 +121,7 @@ const ContactMe = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>EMAIL</label>
             <input 
-              name="email" // NOMBRE IMPORTANTE
+              name="email" 
               type="email" 
               placeholder="email@example.com" 
               style={inputStyle} 
@@ -134,7 +134,7 @@ const ContactMe = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: colors.primary, fontSize: '0.8rem', fontWeight: 'bold' }}>MESSAGE</label>
             <textarea 
-              name="message" // NOMBRE IMPORTANTE
+              name="message" 
               placeholder="How can I help you?" 
               rows="5" 
               style={inputStyle} 
